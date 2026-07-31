@@ -10,11 +10,9 @@ import statsmodels.api as sm
 def calculate_bunching_eti(df: pd.DataFrame, notch_location: int = 400) -> float:
     """Calculate ETI using bunching at the notch.
 
-    Applies the notch estimator of Kleven & Waseem (2013), which gives a lower
-    bound for the ETI based on the excess mass of taxpayers bunching at the
-    notch. Because the bunching response to a notch scales with the square root
-    of the elasticity, the bunching width enters the formula squared -- the
-    linear kink formula of Saez (2010) does not apply here.
+    Uses the Kleven & Waseem (2013) notch estimator, an ETI lower bound. The
+    bunching width enters squared because notch responses scale with the square
+    root of the elasticity; Saez (2010)'s linear kink formula does not apply.
 
     Args:
         df: DataFrame with columns 'income' and 'tax_schedule'
